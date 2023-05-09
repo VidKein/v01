@@ -1,0 +1,46 @@
+НАПОЛНЕНИЕ САЙТА V01 
+Плагины и билиотеки:
+
+ПЛАГИНЫ*******
+1. Группа admin/admin.php - TableManager.
+TableManager - это плагин jQuery, предназначенный для веб-разработчиков и веб-дизайнеров, которым необходимо работать с таблицами HTML.
+САЙТ НЕ РАБОТАЕТ - **http://www.webdevelopment.stonewebdesign.it/it/table-manager/**
+2. Группа pages/main.php/главная страница - lazy-load
+Ленивая загрузка/отложеная загрузка. Позволяет разгрузить компьютор от загрузки сразу всех картинок, загружаются картинки которые находятся 
+на экране.
+Подключение через присваиванаие class="lazy".
+3. Группа pages/main.php/главная страница - wookmark.
+Wookmark - это плагин для построения динамической сетки элементов.
+Сайт - https://github.com/germanysbestkeptsecret/Wookmark-jQuery
+https://www.jqueryscript.net/layout/Dynamic-Grid-Layout-Plugin.html
+jQuery не нужен.
+Подключение через присваиванаие id="wookmark".
+Свои стили - css/main.css.
+4. Группа pages/slider.php/слайдер - slick slider.
+Slick slider - многофункциональный слайдер.
+Сайт - https://github.com/kenwheeler/slick/#start-of-content
+http://kenwheeler.github.io/slick/
+Свои стили+темы+библиотеки - стили /css/slider.css, темы -/css/slick/slick-theme.css, библиотеки - css/slick/slick.css, скрипт - script/slick/slick.min.js, параметры слайдера (мои настройки) - script/slick/js/js.js.
+jQuery нужен - требуется jQuery 1.7 +, добовляется перед закрывающим тегом <body> перед  slick.js.
+5.Группа pages/slider.php/слайдер - jQuery 3.5.1.
+Сайт - https://jquery.com/
+Расположен - /script/jquery/jquery-3.5.1.min.js.
+Нужен для слайдера+анимация кнопок+все что сязано с АДМИНОМ.
+6.Группа pages/slider.php/слайдер - Подключаем скрипт с анимацией кнопок и всего функционала сайта.
+Расположен - script/anime/anime.js.
+7.Группа pages/slider.php/слайдер - fullccrin.
+fullccrin - позволяет открывать любой элемент на странице в полноэкранном режиме без использования Flash во всех современных браузерах (Firefox, Chrome, Safari, Opera). Если эта функция не поддерживается браузером, элемент будет просто растянут на весь экран без переключения в полноэкранный режим.
+Сайт - https://www.jqueryscript.net/demo/Easy-Elements-Fullscreen-Plugin-with-jQuery/examples/
+Расположен - /script/fullccrin/jquery.fullscreen.min.js.
+
+
+БИБЛИОТЕКИ*********
+1. Шрифты googleapis
+Группа index.php главная страница
+https://fonts.googleapis.com/css?family=Roboto:700&display=swap&subset=cyrillic-ext
+Roboto, sans-serif
+3. Иконки Font awesome 5 
+Группа pages/slider.php/слайдер
+https://fontawesome.com/
+Рассположен - fonts/fontawesome/css/all.min.css
+
