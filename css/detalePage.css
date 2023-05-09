@@ -1,0 +1,132 @@
+/*Обо мне*/
+.about_page{
+    width: 250px;
+    float: left;
+    margin: 0 16px 16px 0;
+    }
+/*Контакт*/    
+.contact_page{
+    width: 100%;
+    margin: 0 0 0 0;
+    }
+.row{
+    width: 100%;
+    display: block;
+}
+.col_left{
+    width: 50%;
+    float: left;
+}
+.col_right{
+    width: 50%;
+    float: left;
+}
+form{
+    padding-left: 1em;
+}
+input {
+    display: table;
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0 4px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    color: #000;
+    font-family: sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0 4px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    color: #000;
+    font-family: sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+#img-captcha{
+    vertical-align: middle;
+}
+.renewal{
+    display: inline-block;
+}
+#reload-captcha{
+    margin-left: 10px;
+    text-align: center;
+    cursor: pointer;
+    padding: 3px 6px;
+    background: #ccc;
+    color: white;
+    border-radius: 5px;
+}
+i{
+    padding-right: 5px;
+}
+#reload-captcha:active {
+    background: #000;
+    color: white;
+}
+.modal-footer{
+    text-align: right;
+    margin: 6px;
+}
+button{
+    border-radius: 0;
+    background: #ccc;
+    padding: 3px 6px;
+    margin-right: 5px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+} 
+button:active {
+    background: #000;
+    color: white;
+}
+#captcha{
+ display: block;
+}
+.form_control{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    text-align: center;
+}
+#captcha-text{
+    display: block;
+    margin: 5px 0;
+}
+/*отображает в случае не валидных данных*/
+.has-error .glyphicon-remove{color:#dc3545;}
+/*отображает в случае валидных данных*/
+.has-success .glyphicon-ok{color:green;}
+/*Окно отображаемое при правильном заполнении письма+отправки его адресату*/
+.hidden {
+    display: none;
+}
+.alert-success {
+    text-align: center;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.alert {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin:0 30px;
+}
+/*отображение ошибки при вводе в форму*/
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+    }

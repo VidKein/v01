@@ -1,0 +1,558 @@
+/* admin */
+body {
+    font-family: "Roboto Condensed", Helvetica, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    margin: 35px auto; 
+    width: auto; 
+}
+a {
+
+    text-decoration: none;
+    position: relative;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+table, th, td {
+   border: 1px solid #bbb;
+   text-align: center;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+th {
+    background-color: #ddd;
+}
+th,td {
+    padding: 5px;
+}
+button {
+    cursor: pointer;
+}
+/*Initial style sort*/
+.tablemanager th.sorterHeader {
+    cursor: pointer;
+}
+.tablemanager th.sorterHeader:after {
+    content: "\f0dc";
+    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+}
+/*Style sort desc*/
+.tablemanager th.sortingDesc:after {
+    content: "\f0dd";
+    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+}
+/*Style sort asc*/
+.tablemanager th.sortingAsc:after {
+    content: "\f0de";
+    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+}
+/*Style disabled*/
+#for_numrows {
+    padding: 10px;
+    float: left;
+}
+#for_filter_by {
+    padding: 10px;
+    float: right;
+}
+#pagesControllers {
+    display: block;
+    text-align: center;
+}
+.currentPage{
+    background-color:slategrey;
+}
+/*Админ меню*/
+.adminbar{
+    background: #1d2327;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    height: 34px;
+}
+.adminbar ul{
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+    overflow: hidden;    
+}
+.adminbar li{
+    float: left;
+    border-right: 1px solid #9c9c9c
+}
+.adminbar a{
+    padding: 0.7em;
+    text-decoration: none;
+    display: block;
+    color: #f0f0f1;
+    font-size: 13px;
+}
+/*Левое*/
+.admin-bar-root-default{
+    float: left;
+}
+.adminbar span{
+    padding-left: 5px;
+    color: #78ABE2;
+}
+/*Правое*/
+.admin-bar-top-secondary{
+    float: right;
+    border-left: 1px solid #9c9c9c
+}
+/*Меню выхода*/
+
+/*выпадаюшее меню*/
+.ab-sub-wrapper {
+    top: 34px;
+    right: 0;
+    left: auto;
+    background-color: #2c3338   ;
+    position: absolute;
+    text-align: left;    
+}
+.ab-sub-wrapper-right{
+    top: 34px;
+    background-color: #2c3338   ;
+    position: absolute;
+    text-align: left;  
+    right: 0;
+    left: auto;
+    display: none;
+}
+.ab-sub-wrapper-left{
+    top: 34px;
+    background-color: #2c3338   ;
+    position: absolute;
+    text-align: left;  
+    left: 37px;
+    display: none;
+}
+.ab-sub-wrapper-out{
+    top: 34px;
+    background-color: #2c3338   ;
+    position: absolute;
+    text-align: left;  
+    left:0;
+    display: none;
+}   
+.ab-sub-wrapper-right  li, .ab-sub-wrapper-left  li, .ab-sub-wrapper-out li{
+    border-bottom: 1px solid #9c9c9c;
+}
+.ab-item a{
+    padding: 0 10px;
+    margin: 0;
+    
+}
+.ab-submenu{
+    display: grid;
+}
+/*Анимация выпадаюшего меню*/
+.admin-bar-top-secondary:hover .ab-sub-wrapper-right,
+.admin-bar-top-secondary:focus .ab-sub-wrapper-right
+{
+    display: block;
+}
+.admin-bar-site-name:hover .ab-sub-wrapper-out,
+.admin-bar-site-name:focus .ab-sub-wrapper-out
+{
+    display: block;
+}
+.admin-bar-content:hover .ab-sub-wrapper-left,
+.admin-bar-content:focus .ab-sub-wrapper-left
+{
+    display: block;
+}
+
+li a:hover {
+    color: #5488af; /* Цвет текста активного пункта */
+    background-color: black; /* Цвет фона активного пункта */
+   }
+/*Помошь*/
+/*Кнопка*/
+.screen-meta-links{
+float: right;
+margin: 0 160px 0 0;
+}
+.wrap-link{
+    position: relative;
+    top: 0;
+}
+.show-settings{
+    border: 1px solid #c3c4c7;
+    border-top: none;
+    height: auto;
+    margin-bottom: 0;
+    padding: 3px 16px 3px 16px;
+    background: #fff;
+    border-radius: 0 0 6px 6px;
+    color: #646970;
+    line-height: 1.7;
+    box-shadow: 0px 8px 8px #646970;
+    transition: box-shadow .1s linear;
+    
+}
+#help_metca .show-settings:after{
+  content: "\25BC";
+  display: inline-block;
+  padding: 0 5px 0 5px;
+  position: relative;
+  vertical-align: bottom;  
+}
+/*анимация кнопки*/
+#help_metca .active:after{
+    content: "\25B2";
+    display: inline-block;
+    padding: 0 5px 0 5px;
+    position: relative;
+    vertical-align: bottom; 
+}
+/*Текст Помоши*/
+.help{
+    padding-top: 32px;
+    display: block;
+    margin: 0 40px -1px 40px;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #c3c4c7;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0px 8px 8px #646970;
+    display: none;    
+}
+.contextual-help-columns, p{
+    font-size: 13px;
+    padding: 0 10px;
+    overflow: auto;
+}
+/*Информационная панель*/
+/*Обшая информация*/
+.wrapInfoPanel{
+    padding-top: 10px;
+    width: 100%;
+}
+.metaboxInfoPanel{margin: 0 20px;}
+span{color: #2b609c;}
+h2{
+    font-size: 14px;
+    padding: 5px 12px;
+    margin: 0;
+    line-height: 1.4;
+    border-bottom: 2px solid #c3c4c7;
+    cursor: pointer;
+}
+/*Стрелка отображения/скрытия информации*/
+.wrapInfoPanel h2:after{
+    content: "\25BC";
+    display: block;
+    padding: 0 5px 0 5px;
+    position: relative;
+    float: right;
+}
+/*Аниамция стрелки*/
+.wrapInfoPanel .active:after{
+    content: "\25B2";
+    display: block;
+    padding: 0 5px 0 5px;
+    position: relative;
+    float: right;
+}
+/*Левая панель*/
+.infoBoxOne{
+    width: 49.5%;
+    float: left;}
+.fullInfo, .adminInfo{
+    width: 100%;
+    float: left;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 10px 5px rgb(0 0 0 / 10%);
+    background: #fff;
+    border-radius: 4px;
+}
+.adminInfo{
+    margin-top: 10px;
+}
+
+.fullInfo p, .hostingInfo p, .adminInfo p{
+    margin: 5px 0;
+}
+.leftFullInfoBox  li, .riteFullInfoBox li{
+    font-size: 13px;
+}
+.leftFullInfoBox  ul, .riteFullInfoBox ul{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+.contentInfo{
+    border-top: 1px solid #eee;
+    margin: 0;
+    padding: 6px 20px;
+}
+.contentInfo{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+.riteFullInfoBox{
+    border-left: 1px dashed #c3c4c7;
+    padding-left: 45px;
+}
+/*Правая панель*/
+.infoBoxTu{
+    width: 49.0%;
+    float: right;}
+.hostingInfo{
+    width: 100%;
+    float: right;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 10px 5px rgb(0 0 0 / 10%);
+    background: #fff;
+    border-radius: 4px;
+}
+
+caption{
+    text-align: left;
+    font-size: 13px;
+}
+.hostingInfo table{
+    margin: 0;
+    padding: 0px 10px;
+    font-size: 12px;
+    background-color: white;
+    border: 1px solid white;
+}
+/*График ОБШЕЕ*/
+.usedBy{
+    float: right;
+    background-color: green;
+    height: 1.2em;
+    color: white;    
+}
+.remainder{
+    text-align: initial;
+    float: left;
+    background-color: red;    
+    height: 1.2em;
+    color: white;
+}
+.usedBy b{
+    float: right;
+    padding-right: 10px;
+}
+.remainder b{    
+    position: absolute;
+    padding-left: 10px;    
+}
+/*Графики Фыйлы*/
+.infoSaziFail .usedBy{
+    background-color: green;    
+    height: 1.2em;
+    color: white;
+}
+.infoSaziFail .remainder{
+    float: left;
+    background-color: blue;
+    height: 1.2em;
+    color: white;
+}
+/*Графики Ошибки*/
+.infoSaziLogs .usedBy{
+    float: right;
+    background-color: green;   
+    height: 1.2em;
+    color: white;
+}
+.infoSaziLogs .remainder{
+    float: left;
+    background-color: blue;
+    height: 1.2em;
+    color: white;
+}
+
+.usedByNamber{
+    float: left;    
+}
+.remainderNamber{
+    float: right; 
+}
+.buttonWidth{width: 100%;}
+.hostingInfo form{
+    margin: 0;
+}
+.host, .Fail, .Logs, .infousers, .infoShared{
+    margin: 0 20px;
+}
+mark{background-color: rgb(0 0 0 / 30%);}
+#clearLogs, #clearFile{
+    cursor: pointer;
+}
+
+/*Информация выводимая для Администратора*/
+/*Кнопка*/
+.namber{
+  font-weight: 600;
+}
+.accordion {
+  background-color: rgb(242, 242, 242);
+  color: #444;
+  cursor: pointer;
+  padding: 2px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 13px;
+  transition: 0.4s;
+  font-weight: 600;
+  border-top: 2px solid white;
+}
+.activeAccord, .accordion:hover {
+  background-color: #ccc; 
+}
+/*Иконки*/
+.accordion:after {
+  content: '\02795'; /* Символ юникода для "плюса" знак (+) */
+  font-size: 9px;
+  color: #777;
+  float: right;
+  margin-right: 5px;
+}
+.activeAccord:after {
+  content: "\2796"; /* Символ юникода для "минуса" знак (-) */
+}
+/*Содержание кнопки*/
+.panel {
+  display: none;
+  background-color: white;
+  overflow: hidden;
+  width: 100%;
+}
+/*Таблица с информацией*/
+ .infoTab {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 2px solid rgb(200,200,200);
+  text-align: center;  
+  width: 100%;
+  font-size: 13px;
+}
+.infoTab td,th{
+  border: 1px solid rgb(190,190,190);
+  padding: 1px 2px;
+}
+/*Информация о количестве поделились*/
+.shared{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+}
+.infoShared ul li{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.number{
+    font-size: 14px;
+    padding-left: 8px;
+}
+/*Кнопки для внесения изменения в информации о хостинге*/
+.saveTextHost{
+    padding: 2px 2px;
+    background-color: rgb(242, 242, 242);
+    cursor: pointer;
+    border: none;
+}
+.saveTextHost::after{
+    content: '\02795';
+    font-size: 9px;
+    color: #777;
+    padding: 1px 1px;
+}
+.activeSave::after{
+    content: "\2796";
+}
+.wrapInfoHosting input{
+    font-size: 12px;
+    padding: 3px;
+    width: 5rem;
+}
+/*Кнопка для ввода логина*/
+.vievPassword{
+    padding: 12px;
+    position: absolute;
+    border: 1px solid transparent;
+    background: 0 0;
+    margin: 0;
+    right: 2.25rem;
+    font-size: 15px;
+    top: 0.25px;
+}
+.vievPassword:hover{
+    border: 1px solid #00000073;
+    border-color: #4CAF5078;
+    border-radius: 4px;
+    background: #F2F2F2;
+}
+.exitPassword{
+    padding: 12px;
+    position: absolute;
+    border: 1px solid transparent;
+    background: 0 0;
+    margin: 0;
+    right: 0;
+    font-size: 15px;
+    top: 0.25px;
+}
+.exitPassword:hover{
+    border: 1px solid #00000073;
+    border-color: #4CAF5078;
+    border-radius: 4px;
+    background: #F2F2F2;
+}
+.generatePassword{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 1px 0 0 2px;
+    font-size: 1vw;
+}
+.goBask{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/*Поле для проверки пароля на надежность*/
+#block_check {
+    margin: 3px 0;    
+    transition: 1s;
+    text-align: center;
+}
+/*АДАПТИВНОСТЬ сайта*/
+.goBask > a{color: white;}
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+        .infoBoxOne, .infoBoxTu{
+            width: 100%;
+            padding-top: 10px;
+        }
+    }
+/* end admin */ 

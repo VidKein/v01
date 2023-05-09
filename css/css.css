@@ -1,0 +1,149 @@
+body{
+  color: #000000;
+	font-size: 16px;
+  font-family: 'Roboto', sans-serif; 
+  font-weight: bold;
+ } 
+/*Верхняя надпись*/
+header{
+ z-index: 0;
+}
+.hader-top{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #ffffff;
+  z-index: 1;
+  }
+.inner-hader-top{
+ width: 100%;
+}
+.left_up{
+ font-size: 22px;
+ float: left;
+ width: 50%;
+ margin: 0 0 0 70px;
+ line-height: 0;
+}
+.right{
+    font-size: 13px;
+    text-align: right;
+    padding-right: 153px;
+    line-height: 0;
+    padding-top: 5px;
+  }
+  .contact{
+     text-decoration: none;
+     font-size: 13px;
+     color: #000000;
+     transition: .1s linear;
+   }
+  .contact:hover{
+    color: darkgrey;
+  }
+   .left_bottom{
+    font-size: 13px;
+    width: 50%;
+    line-height: 0;
+    padding-left: 144px;
+}
+/*Левый ВСЕ*/
+nav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 22px;
+}
+.content{
+   	width: 145px;
+	  float: left; 
+    position: fixed;
+  }
+.inner-content{
+    background: #ffffff;
+	  
+  }
+/*поездки*/
+.info{
+    font-size: 13px;
+    font-weight: bold;
+    padding : 0 0 0 30px;
+    margin: 0;
+    color: #000000;
+    text-decoration: none;
+}
+ul{
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: bold;
+  list-style-type: none;
+  margin: 0
+ }
+.sheet-inner-content-1{
+  color: #000000;
+  text-decoration: none;
+  transition: .1s linear;
+}
+.sheet-inner-content-1:hover{
+    color: darkgrey;
+    display: block;
+}
+
+/*соцсети*/
+.content2{
+  float: top;
+  padding-top: 15px;
+  max-width: 100%;
+  height: auto;
+}
+.inner-content-2{
+  min-height: 25px;
+  background: #ffffff;
+  padding-left: 25px
+}
+.social {display: inline-block;}
+.social a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  text-align: center;
+  color: #000;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 0 50px rgba(0,0,0,0.1);
+}
+.social a:hover {color: #fff;}
+.social svg {
+  margin-top: 0px;
+  width: 10px;
+  height: 10px;
+}
+.facebook a:hover {background: #3b5998;}
+.instagram a:hover {background: #3f729b;}
+.linkedin a:hover {background: #0e76a8;}
+.twitter a:hover {background: #00acee;}
+
+/*copiring*/
+.content3{
+  float: top;
+  padding-top: 15px;
+  max-width: 100%;
+  height: auto;
+}
+.inner-content-3{
+  min-height: 20px;
+  background: #ffffff;
+  font-size: 14px;
+  padding-left: 30px;
+  color: #000000;
+  text-decoration: none;
+  transition: .1s linear;
+  cursor: pointer;
+}
+.inner-content-3:hover{
+    color: darkgrey;
+}

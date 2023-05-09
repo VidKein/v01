@@ -1,0 +1,278 @@
+head{
+    background: #FFFF;
+    box-sizing: border-box;
+}
+/*Контейнер ВСЕГО*/
+    .slider{
+       position: absolute;  
+       top: 0;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       overflow: hidden;
+       box-sizing: border-box;
+       z-index: 3;
+    }
+/*блок картинки*/
+    .SingleImage{/*центрируем*/
+        left: 0%;
+        width: 75%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .center{left: 12%;}/*центрируем-параметры*/
+    .imegen{/*картинка обшая*/
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width:1200px;
+        margin: 0 auto;
+        box-sizing: border-box;/*учитываем отступы*/
+        border: 1.5em solid transparent;/*отступ*/
+    }
+    img{/*картинки слайдера*/
+        width: auto;
+        height: 669px;
+        margin: 0 auto;
+     }
+     .sl_img{/*заглушка для предворительной загрузке*/
+        background-image: url(/img/src.jpg);
+    }
+/*блок информации*/
+    .infoSection{/*убираем*/
+       right: 0%;
+       width: 25%;  
+       height: auto;
+       position: absolute;
+       top: 0;
+       bottom: 0;
+       border-left: 1px solid #aba6a9;
+       z-index: 3;
+    }
+    .hide{display: none;}/*убираем-параметры*/
+
+    button{/*убераем атрибуты кнопки*/
+        border: none;
+        background-color: #FFFF;
+    }
+    .close{/*кнопка закрытия-перехода на галерею*/
+        position: fixed;
+        margin: 0;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        font-size: 1em;
+        cursor: pointer;
+        z-index: 5;
+    }
+    .transition{/*кнопка исчезнавения блока информации*/
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        margin: 0px 41px 0 0;
+        text-align: center;
+        float: left;
+        font-size: 1em;
+        cursor: pointer;
+        z-index: 5;
+    }
+    .backward{/*кнопки к следуюшей картинке*/
+        width: 50%;
+        border-top: 1px solid #aba6a9;
+        border-bottom: 1px solid #aba6a9;
+        margin:41px 0 0 0 ;
+        padding: 0 15px;
+        line-height: 2em;
+        font-size: 1.2em;
+        float: left;/*по какой стороне будет выравниваться элемент, при этом остальные элементы будут обтекать его с других сторон*/
+        cursor: pointer;
+    }
+    .forward{/*кнопки к предыдушей картинке*/
+        width: 50%;
+        border-top: 1px solid #aba6a9;
+        border-bottom: 1px solid #aba6a9;
+        border-left: 1px solid #aba6a9;
+        margin:41px 0 0 0 ;
+        padding: 0 15px;
+        line-height: 2em;
+        font-size: 1.2em;
+        cursor: pointer;
+    }
+    .count{/*счетчик фотографий*/
+        text-align: left;
+        margin: 1em 0 0 1em;
+        font-size: 0.8em;
+     }
+     .name-foto{/*название раздела*/
+        font-size: 1.3em;
+        margin: 0.5em 0 0 0.6em;
+        text-align: left;
+        text-transform: uppercase;
+        overflow: hidden;/* Обрезаем все, что не помещается в область */
+        text-overflow: ellipsis;/*уменьшаем размер текста*/
+        white-space: nowrap;/*запрешает перенос текста*/
+    }
+    .content-foto{/*краткое описание фотографии*/
+        text-align: left;
+        margin: 0.5em 0 0 1em;
+        font-size: 0.9em;
+    }
+    .functional{/*Функционал ИНФОРМАЦИОННОГО блока*/
+        position: absolute;  
+        bottom: 2.5em;
+    }
+    .church {/*Кнопки инфо секции*/
+        float: right;
+        right: 48px;  
+        top: 50%;
+        margin: -7px 0 0;
+        position: absolute;
+    }
+    .play, .stop{/*Проигрывать--Пауза*/
+        float: left;
+        padding: 1em 45px 1em 30px;
+        position: relative;
+        border-top: 1px solid #aba6a9;
+        width: 100%;
+        height: 3em;
+        text-align: left; 
+        text-transform: uppercase;
+        font-size: 1em;
+        cursor: pointer;
+    }
+    .requestfullscreen, .exitfullscreen{/*Полноэкранный режим*/
+        float: left;
+        padding: 1em 45px 1em 30px;
+        position: relative;
+        border-top: 1px solid #aba6a9;
+        width: 100%;
+        height: 3em;
+        text-align: left; 
+        text-transform: uppercase;
+        font-size: 1em;
+        padding: 1em 45px 1em 30px;
+        position: relative;
+        cursor: pointer;
+    }
+    .social{/*Распространить*/
+        float: left;
+        padding: 1em 45px 1em 30px;
+        position: relative;
+        border-top: 1px solid #aba6a9;
+        border-bottom: 1px solid #aba6a9;
+        width: 100%;
+        height: 3em;
+        text-align: left; 
+        text-transform: uppercase;
+        font-size: 1em;
+        cursor: pointer;
+    }
+    #fullscreen_slider {/*подложка для Полноэкранного режима */
+        background: #fafafa;
+        color: inherit;	
+      }
+/*Выпадаюшее окно для соцсетей*/
+    .appearance_social {/*все окно*/
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        background: rgba(255,255,255,0.95);
+        z-index: 10;
+        display: none;
+    }
+    .holder_social{
+        position: absolute;
+        cursor: auto;
+        max-width: 440px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .holder_content{
+        display: inline-block;
+        padding: 30px 40px;
+        border-radius: 3px;
+        background: #ffffff;
+        position: relative;
+        border: 1px solid #aba6a9;
+    }
+    .close_social{/*кнопка закрытия*/
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .holder_social h1{
+        text-align: center;
+        font-size: 1.2em;
+        margin: 0;
+    }
+    .holder_social form{/*форма*/
+        position: relative;
+        padding: 20px 0 0;
+    }
+    .holder_social [type = text], .appearance_social [type = email]{/*форма*/
+        width: 90%;
+        border: 1px solid#aba6a9;
+        padding: 10px 35px 10px 15px;
+        font-size: 0.7em;
+    }
+    .holder_social form button{/*кнопка*/
+        display: block;
+        position: absolute;
+        padding: 0;
+        bottom: 4px;
+        right: -11px;
+        width: 2em;
+        height: 2em;
+        cursor: pointer;
+    }
+    .options_social{
+        position: relative;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 1.5em;
+    }
+    .options_social::before{
+        content: "Социальные сети:";
+        display: block;
+        padding-top: 25px;
+        text-align: left;
+        font-size: 16px;
+    }
+    .holder_content ul li{
+        float: left;
+        width: 33%;
+        text-align: center;
+    }
+    .holder_content ul a i{
+        padding-top: 15px;
+        color: black;
+    }
+    /*Результат формы/Ошибки формы*/
+    .validation-feedback{
+        width: 100%;
+        margin-top: .25rem;
+        font-size: 70%;
+        position: absolute;
+    }
+    .email-feedback{
+        width: 100%;
+        margin-top: .25rem;
+        font-size: 70%;
+        position: absolute;
+    }  
