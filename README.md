@@ -1,4 +1,5 @@
 Website for posting photos. With the possibility of administration.
+
 Guidelines for using the V01 site.
 ADMIN PANEL:
      - The entrance to enter the panel is made by pressing the keys Ctr + ` from all pages (under development) ...
