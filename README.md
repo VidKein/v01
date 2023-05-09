@@ -1,8 +1,10 @@
 Website for posting photos. With the possibility of administration.
 
 Guidelines for using the V01 site.
+
 ADMIN PANEL:
      - The entrance to enter the panel is made by pressing the keys Ctr + ` from all pages (under development) ...
+     
 MAIN page:
      - When you click on the logotype, we switch to the display mode of all photos.
      - By clicking on ALL SECTIONS, we switch to the display mode of all photos.
@@ -15,6 +17,7 @@ MAIN page:
      - When you click on CONTACTS (bottom / top right), information will appear on how to contact the author of the photos.
      - When you click on the icons with social networks, you will be able to go to the pages of the author of the photos.
      - When you press COPERING, information about protecting the copyright of the author of the photos will appear.
+
 Page SLIDER:
 - Consists of two information fields: PHOTO (left)/PHOTO INFO (right).
  
