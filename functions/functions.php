@@ -713,7 +713,7 @@
                                         <li><i class="fab fa-pinterest-p"></i><span class="number"><?= HostSait::getInfo("/json/share.json")['pinterest'];?></span></li>
                                         <li><i class="fab fa-facebook-f"></i><span class="number"><?= HostSait::getInfo("/json/share.json")['facebook'];?></span></li>
                                         <li><i class="fab fa-twitter"></i><span class="number"><?= HostSait::getInfo("/json/share.json")['twitter'];?></span></li>
-                                        <li><i class="far fa-envelope"></i><span class="number"><?= HostSait::getInfo("/json/share.json")['mail'];?></span></li>
+                                        <li><i class="far fa-envelope"></i><span class="number"><?= ALLemail();?></span></li>
                                     </ul>                            
                                 </div>
                             </div>    
@@ -2115,11 +2115,10 @@
                         return $value;
                     }
                 }
-            } else {
+            } else {/*
                 switch($var){
                     case 'text_title_site': return "Видющенко КН-ФОТОГРАФ";
                         break;
-                    
                     case 'text_detail_body' : return "Тут должен был быть текст, но что то пошло не так...";
                         break;
                     
@@ -2142,7 +2141,7 @@
                         break;
                     case 'title_top_nav' : "Все поездки";
                         break;
-                }
+                }*/
             }
         }
 //функция для ПРЕДЗАГРУЗКИ фото в папку ../files

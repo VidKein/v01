@@ -178,7 +178,7 @@ $(document).ready(function(){
           data: { // данные, которые будут отправлены на сервер
             edit : 1,
             name : 'mail',
-            fale :"share.json"}
+            fale :"/json/share.json"}
           })
       }
     });

@@ -92,7 +92,7 @@
 		</aside> 
 		<scroll><?php require_once $location_serv."scroll.php"; //подкл скролинг ?></scroll>
 </div>
-<!--Обрабатываем нажатие клавиш ctrl+shift(left) для перехода на страницу АДМИН.-->
+<!--Обрабатываем нажатие клавиш ctrl + ` для перехода на страницу АДМИН.-->
 <script>
 	    var origin_web = window.origin;//вычитываем домен
 		var isCtrl = false;
@@ -102,7 +102,6 @@
 			if(e.which == 192 && isCtrl == true) {//если нажаты клавиши ctrl + `
 				document.location.replace(origin_web + "/admin/login.php");}			
 			});
-
 </script>
 </body>
 </html>

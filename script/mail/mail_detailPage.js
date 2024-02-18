@@ -107,7 +107,7 @@ $(function() {
                               //скрыть модальное окно
                               $('.row').css({'display': 'none'});
                         },
-                        function () { 
+                        function () {
                               //отобразить сообщение об успехе
                               $('#success-alert').removeClass('hidden');
                         }]
