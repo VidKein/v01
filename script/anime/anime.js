@@ -341,5 +341,3 @@ $(document).ready(function() {
         $('#block_check').html('Надёжный');
       });  
    }); 
-   
- 

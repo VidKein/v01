@@ -3,84 +3,144 @@ body{
 	font-size: 16px;
   font-family: 'Roboto', sans-serif; 
   font-weight: bold;
+  padding: 0;
+  margin: 0;
  } 
 /*Верхняя надпись*/
+.wrapper{
+  margin-top: 3.75rem;
+}
 header{
- z-index: 0;
-}
-.hader-top{
   position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  overflow: hidden;
-  box-sizing: border-box;
-  background: #ffffff;
-  z-index: 1;
-  }
-.inner-hader-top{
- width: 100%;
-}
-.left_up{
- font-size: 22px;
- float: left;
- width: 50%;
- margin: 0 0 0 70px;
- line-height: 0;
-}
-.right{
-    font-size: 13px;
-    text-align: right;
-    padding-right: 153px;
-    line-height: 0;
-    padding-top: 5px;
-  }
-  .contact{
-     text-decoration: none;
-     font-size: 13px;
-     color: #000000;
-     transition: .1s linear;
-   }
-  .contact:hover{
-    color: darkgrey;
-  }
-   .left_bottom{
-    font-size: 13px;
-    width: 50%;
-    line-height: 0;
-    padding-left: 144px;
-}
-/*Левый ВСЕ*/
-nav{
-  position: absolute;
   top: 0;
   left: 0;
-  margin-top: 22px;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 0.6rem 1.9rem;
+  height: 2.5rem;
+  z-index: 2;
+  background: #ffffff;
 }
-.content{
-   	width: 145px;
-	  float: left; 
-    position: fixed;
+.left_up{
+  width: 100%;
+}
+.rigtn_up{
+  width: 100%;
+  text-align: right;
   }
-.inner-content{
-    background: #ffffff;
-	  
+.logo{
+  color: #000000;
+  text-decoration: none;
+}
+.logo_funktion{
+  display: block;
+  padding-left: 1.7rem;
+  font-size: 14px;
+}
+.contact{
+  text-decoration: none;
+  font-size: 13px;
+  color: #000000;
+  transition: .1s linear;
   }
+.contact:hover{
+    color: darkgrey;
+  }
+.languageSelect {
+  padding: 0;
+  display: inline-flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  width: 27px;
+  height: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 16px;
+  }
+  .languageSelect li {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  order: 2;
+  padding: 3px 1px;
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+  }
+  .languageSelect li:hover {
+  cursor: pointer;
+  background: rgba(163, 156, 156, 0.589);
+  }
+  .languageSelect.open {
+  height: auto;
+  }
+  .languageSelect li.active {
+  order: 1;
+  pointer-events: none;
+  }
+  .iconNav{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin: -20px 0;
+    line-height: 40px;
+    width: 55px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+  } 
+  .iconSearch{
+    cursor: pointer;
+  }
+  .searchInput{
+    border: none;
+    width: 0;
+    margin: 0 10px 0 0;
+    border-bottom: 0px solid #a3a19f;
+  }
+  input:focus{
+    outline: none;
+  }
+/*Левый ВСЕ*/
+nav{
+  position: fixed;
+  top: 46px;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+  padding: 0px 10px 0 10px;
+  background: #ffffff;  
+  width: 130px;
+  height: 100%;
+}
 /*поездки*/
 .info{
     font-size: 13px;
     font-weight: bold;
-    padding : 0 0 0 30px;
+    padding : 0 0 0 10px;
     margin: 0;
     color: #000000;
     text-decoration: none;
 }
-ul{
+.navTop{
   font-size: 13px;
   line-height: 1.6;
   font-weight: bold;
   list-style-type: none;
-  margin: 0
+  margin: 0;
+  padding: 0 0 0 20px;
+ }
+ .navBottom{
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: bold;
+  list-style-type: none;
+  margin: 150px 0 0 0;
+  padding: 0 0 0 20px;
  }
 .sheet-inner-content-1{
   color: #000000;
@@ -94,15 +154,11 @@ ul{
 
 /*соцсети*/
 .content2{
-  float: top;
   padding-top: 15px;
-  max-width: 100%;
-  height: auto;
 }
 .inner-content-2{
   min-height: 25px;
   background: #ffffff;
-  padding-left: 25px
 }
 .social {display: inline-block;}
 .social a {
@@ -129,16 +185,13 @@ ul{
 
 /*copiring*/
 .content3{
-  float: top;
   padding-top: 15px;
-  max-width: 100%;
-  height: auto;
 }
 .inner-content-3{
   min-height: 20px;
   background: #ffffff;
   font-size: 14px;
-  padding-left: 30px;
+  padding-left: 5px;
   color: #000000;
   text-decoration: none;
   transition: .1s linear;
@@ -146,4 +199,21 @@ ul{
 }
 .inner-content-3:hover{
     color: darkgrey;
+}
+/*Media запрос*/
+@media screen and (max-width:750px){
+    nav {
+      display: none;
+    }
+    .iconKontakt{display: none;}
+    .iconNav{display: block;}
+    .left_up{padding-left: 21px;}
+}
+@media screen and (max-width:535px) {
+  .iconSearch{display: none;}
+}
+@media screen and (max-width:500px){
+  .rigtn_up{
+    width: 15%;
+  }
 }

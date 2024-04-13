@@ -1,9 +1,10 @@
 ﻿/*Картинки главной страницы*/
 aside{
-  margin: 0 0 0 146px;
+  margin-left: 150px;
+  padding: 0 15px;
 }
 .main{
-  margin: 0;
+  margin: -20px 0;
   padding: 0;
 }
 /*Текст предуприждаюший о пустой папке*/
@@ -178,4 +179,10 @@ aside{
 #filters li.active {
   background: #4281f5;
   color: #ffffff;
+}
+/*Media запрос*/
+@media screen and (max-width:750px){
+  aside{
+    margin-left: 0px;
+  }
 }

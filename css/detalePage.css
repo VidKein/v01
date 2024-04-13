@@ -24,7 +24,7 @@
 form{
     padding-left: 1em;
 }
-input {
+#your_name, #email_contact, #message, #text_message {
     display: table;
     width: 100%;
     padding: 8px;
@@ -94,7 +94,6 @@ button:active {
     display: block;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
     font-size: 1rem;
     text-align: center;
 }

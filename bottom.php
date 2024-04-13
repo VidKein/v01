@@ -15,6 +15,5 @@
 			?>
 		</div>
 </div>
-   <div class="content3"><?php page_see_nav('bottom', $array_menus);?>
-</div>   
+<div class="content3"><?php page_see_nav('bottom', $array_menus);?></div>   
  

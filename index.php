@@ -102,6 +102,75 @@
 			if(e.which == 192 && isCtrl == true) {//если нажаты клавиши ctrl + `
 				document.location.replace(origin_web + "/admin/login.php");}			
 			});
+		/*ЯЗЫК*/
+		//Открываем закрываем выподаюшее меню
+		let markerLang;
+        let languageSelect = document.getElementById("languageSelect");
+        languageSelect.addEventListener("click",(e)=>{
+            if(e.currentTarget.className == "languageSelect open"){
+                e.currentTarget.setAttribute('class', "languageSelect");
+            }else{
+                e.currentTarget.className += " open";  
+            };
+        })
+		//Выбираем переключатель языка
+		let le = document.getElementsByTagName("li");
+				for (let i = 0; i < le.length; i++) {
+		            le[i].addEventListener("click", (e)=>{
+		                for(let langBloc of le){langBloc.removeAttribute("class");}
+		                e.target.className = "active";
+		                markerLang = e.target.id;
+						console.log("Язык -> "+markerLang);
+					})    
+		}	
+		
+/*Анимация меню и поисковика*/
+//Menu
+let nav = document.getElementsByTagName("nav");
+let iconNav = document.querySelector(".iconNav");
+iconNav.addEventListener('click', activMenu);
+function activMenu() {
+	iconNav.classList.toggle("active");
+	for (let i = 0; i < iconNav.children.length; i++) {
+		if (iconNav.className == "iconNav active") {
+			iconNav.children[i].className = "fa fa-times";
+			nav[0].style.display = "block";
+			nav[0].style.width = "100%";
+			nav[0].style.zIndex = "1";	
+		} else { 
+			iconNav.children[i].className = "fa fa-bars";
+			nav[0].style.display = "none";
+			nav[0].style.zIndex = "0";	
+		}
+	}
+}
+let pageWidth;
+addEventListener("resize",()=>{ 
+	pageWidth = document.documentElement.clientWidth;
+	if (pageWidth >= 750) {
+		nav[0].style.display = "block";
+	}else{
+		nav[0].style.display = "none";
+	}
+
+})
+//Input
+let search = document.getElementById("search");
+let iconSearch = document.querySelector(".iconSearch");
+let searchInput = document.querySelector(".searchInput");
+search.addEventListener('click', activSearch);
+function activSearch() {
+	iconSearch.classList.toggle("active");
+	for (let i = 0; i < iconSearch.children.length; i++) {
+		if (iconSearch.className == "iconSearch active") {
+			searchInput.style.width = "150px";
+			searchInput.style.borderBottom = "1px solid #a3a19f";
+		} else {
+			searchInput.style.width = "0px";
+			searchInput.style.borderBottom = "0px solid #a3a19f";
+		}
+	}
+}
 </script>
 </body>
 </html>
