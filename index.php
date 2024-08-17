@@ -128,6 +128,15 @@
 //Menu
 let nav = document.getElementsByTagName("nav");
 let iconNav = document.querySelector(".iconNav");
+//Menu nav+adaptiv
+let pageHeightHeight;
+let pageHeightHeader;
+let pageInfo;
+let pageHeightNavTop;
+let navBottom;
+let pageHeightNavBottom;
+let pageHeightContent2;
+let pageHeightContent3;
 iconNav.addEventListener('click', activMenu);
 function activMenu() {
 	iconNav.classList.toggle("active");
@@ -136,7 +145,9 @@ function activMenu() {
 			iconNav.children[i].className = "fa fa-times";
 			nav[0].style.display = "block";
 			nav[0].style.width = "100%";
-			nav[0].style.zIndex = "1";	
+			nav[0].style.zIndex = "1";
+			//Nav+adaptiv+even
+	        navBottonMargin();	
 		} else { 
 			iconNav.children[i].className = "fa fa-bars";
 			nav[0].style.display = "none";
@@ -152,7 +163,20 @@ addEventListener("resize",()=>{
 	}else{
 		nav[0].style.display = "none";
 	}
-
+	//Nav+adaptiv+even
+	navBottonMargin();
+	for (let i = 0; i < iconNav.children.length; i++) {
+		if (iconNav.className == "iconNav active") {
+			iconNav.className = "iconNav";
+			iconNav.children[i].className = "fa fa-bars";
+			nav[0].style.display = "none";
+			nav[0].style.zIndex = "0";	
+			nav[0].style.width = "130px";
+			if (pageWidth >= 750) {
+				nav[0].style.display = "block";
+			}
+		}
+    }
 })
 //Input
 let search = document.getElementById("search");
@@ -171,6 +195,28 @@ function activSearch() {
 		}
 	}
 }
+
+addEventListener("load",()=>{
+//Nav+adaptiv+load	
+navBottonMargin();
+}) 
+
+function navBottonMargin() {
+	pageHeightHeader = document.querySelector("header").offsetHeight;
+	pageHeightInfo = document.querySelector(".info").offsetHeight;
+	pageHeightNavTop = document.querySelector(".navTop").offsetHeight;
+	navBottom = document.querySelector(".navBottom");
+	pageHeightNavBottom = navBottom.offsetHeight;
+	pageHeightContent2 = document.querySelector(".content2").offsetHeight;
+	pageHeightContent3 = document.querySelector(".content3").offsetHeight;
+	let marginNavBotton = window.innerHeight-(130+pageHeightNavTop+pageHeightNavBottom+pageHeightContent2+pageHeightContent3);
+	if (marginNavBotton >= 0) {
+		navBottom.style.margin = marginNavBotton+"px 0 0 0";
+	} else {
+		navBottom.style.margin = "15px 0 0 0";	
+	}
+}
+
 </script>
 </body>
 </html>

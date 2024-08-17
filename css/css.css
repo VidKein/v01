@@ -115,7 +115,6 @@ nav{
   padding: 0px 10px 0 10px;
   background: #ffffff;  
   width: 130px;
-  height: 100%;
 }
 /*поездки*/
 .info{
@@ -139,7 +138,6 @@ nav{
   line-height: 1.6;
   font-weight: bold;
   list-style-type: none;
-  margin: 150px 0 0 0;
   padding: 0 0 0 20px;
  }
 .sheet-inner-content-1{
@@ -213,6 +211,7 @@ nav{
   .iconSearch{display: none;}
 }
 @media screen and (max-width:500px){
+  /*Menu left*/
   .rigtn_up{
     width: 15%;
   }
