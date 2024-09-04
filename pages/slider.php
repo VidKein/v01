@@ -126,3 +126,24 @@
     </section>
  </div>
 </section>
+<script>
+imgLoad();
+addEventListener("resize",()=>{imgLoad();}) 
+
+    function imgLoad() {
+        let imgLoad = document.getElementsByTagName("img");
+        for (let i = 0; i < imgLoad.length; i++) {
+            const elementWidth =imgLoad[i].width;
+            const elementHeight =imgLoad[i].height;
+            if (elementWidth !== "" && elementWidth !== 200) {
+                if (elementWidth > elementHeight) {
+                    imgLoad[i].style.width = "100%"; 
+                    imgLoad[i].style.height = "auto";
+                } else {
+                    imgLoad[i].style.width = "auto"; 
+                    imgLoad[i].style.height = window.innerHeight+"px";
+                }
+            }
+        }   
+    }
+</script>

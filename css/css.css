@@ -105,6 +105,58 @@ header{
   input:focus{
     outline: none;
   }
+  /*Обнуление поиска*/
+  .clear{
+    position: absolute;
+    right: 180px;
+    top: 22px;
+    display: none;
+  }
+  /*Вывод результата поиска*/
+  .searchResultsContainer{
+    display: none;
+    top: 42px;
+    right: 90px;
+    position: absolute;
+    width: 240px;
+    flex-direction: column;
+    margin-top: 10px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: 1px solid #dedede;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+  .ResultsContainer{
+    padding: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .quantity{
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: rgb(163, 161, 159);
+  }
+  .tablResults{
+    margin: 0;
+    padding: 0;
+  }
+  .infoTablResults{
+    font-size: 12px;
+    float: left;
+    list-style-type: none;
+    padding: 3px 
+    }
+  .textTablResults{
+    text-decoration: none;
+    color: #000;
+    margin-left: 5px;
+  }
+  .fotoTablResults{
+    float: left;
+    width: 50px;
+    height:auto;
+  }
 /*Левый ВСЕ*/
 nav{
   position: fixed;
@@ -148,6 +200,10 @@ nav{
 .sheet-inner-content-1:hover{
     color: darkgrey;
     display: block;
+}
+.textTablResults:hover{
+  color: darkgrey;
+  display: block;
 }
 
 /*соцсети*/
@@ -202,6 +258,9 @@ nav{
 @media screen and (max-width:750px){
     nav {
       display: none;
+    }
+    .clear{
+      right: 100px;
     }
     .iconKontakt{display: none;}
     .iconNav{display: block;}

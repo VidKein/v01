@@ -182,25 +182,95 @@ addEventListener("resize",()=>{
 let search = document.getElementById("search");
 let iconSearch = document.querySelector(".iconSearch");
 let searchInput = document.querySelector(".searchInput");
+let clearInput = document.querySelector(".clear");
+let searchResultsContainer = document.querySelector(".searchResultsContainer");
+let Results = document.querySelector(".Results");
+let quantityInfo = document.querySelector(".quantityInfo");
+let tablResults = document.querySelector(".tablResults");
+//создаем XHR обьект
+let xhrPost = new XMLHttpRequest();
 search.addEventListener('click', activSearch);
 function activSearch() {
 	iconSearch.classList.toggle("active");
 	for (let i = 0; i < iconSearch.children.length; i++) {
-		if (iconSearch.className == "iconSearch active") {
-			searchInput.style.width = "150px";
-			searchInput.style.borderBottom = "1px solid #a3a19f";
+			if (iconSearch.className == "iconSearch active") {
+				searchInput.style.width = "150px";
+				searchInput.style.borderBottom = "1px solid #a3a19f";
+				clearInput.style.display = "block";
+			} else {
+				searchInput.style.width = "0px";
+				searchInput.style.borderBottom = "0px solid #a3a19f";
+				clearInput.style.display = "none";
+				cleaningInput();
+			}
+		}
+}
+clearInput.addEventListener('click', cleaningInput);
+function cleaningInput() {
+	searchInput.value = '';
+	searchResultsContainer.style.display = "none";
+}
+//Механизм поиска
+searchInput.addEventListener("keyup",searchInputLive);
+function searchInputLive() { 
+	let nameSearch = searchInput.value;
+	if (nameSearch === "") {
+		searchResultsContainer.style.display = "none";
+		cleaningInput();
+	} else {
+		searchResultsContainer.style.display = "flex";
+		//определяем язак для загрузки
+        xhrPost.open("post", "/functions/functions.php", true);
+        xhrPost.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        // Формируем данные для отправки
+		var data = "nameSearch=" + encodeURIComponent(nameSearch);
+        xhrPost.send(data); 
+
+	}
+}
+//Вывод
+xhrPost.onreadystatechange = function() {
+	if (document.querySelector(".tablResults").children.length !== 0) {
+		for (let i = 0; i < document.querySelector(".tablResults").children.length; i++) {
+			document.querySelector(".tablResults").children[i].remove();
+		}
+	}
+    if (xhrPost.readyState === 4 && xhrPost.status === 200 && xhrPost.response !==0) {
+        let response = JSON.parse(xhrPost.responseText);
+		if (response.length === undefined) {
+			quantityInfo.textContent = "0";	
 		} else {
-			searchInput.style.width = "0px";
-			searchInput.style.borderBottom = "0px solid #a3a19f";
+			quantityInfo.textContent = response.length;	
+		}
+		for (let i = 0; i < response.length; i++) {
+			let product = response[i];
+			//console.log(product["id"]+"-"+product["name"]+"-"+product["url_500"]+"-"+product["category_id"]);
+			let li = document.createElement("li");//создаем li
+			li.className = "infoTablResults";
+			tablResults.appendChild(li);
+			let link = document.createElement("a");//создаем a
+			link.href = "http://v01-git/index.php?page=gallery&categories="+product[`category_id`]+"&photo="+product[`id`];
+			link.textContent = product["name"];
+			link.className = "textTablResults";
+			li.appendChild(link);
+			let img = document.createElement("img");//создаем img
+			img.src = product["url_500"];
+			img.title = product["name"];
+			img.className = "fotoTablResults";
+			if (img.width >= img.height) {
+				link.style.lineHeight = "2rem";
+			} else {
+				link.style.lineHeight = "5rem";
+			}
+			link.appendChild(img);
+			
 		}
 	}
 }
-
 addEventListener("load",()=>{
 //Nav+adaptiv+load	
 navBottonMargin();
 }) 
-
 function navBottonMargin() {
 	pageHeightHeader = document.querySelector("header").offsetHeight;
 	pageHeightInfo = document.querySelector(".info").offsetHeight;

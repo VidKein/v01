@@ -33,8 +33,6 @@ head{
         border: 1.5em solid transparent;/*отступ*/
     }
     img{/*картинки слайдера*/
-        width: auto;
-        height: 669px;
         margin: 0 auto;
      }
      .sl_img{/*заглушка для предворительной загрузке*/
@@ -275,4 +273,35 @@ head{
         margin-top: .25rem;
         font-size: 70%;
         position: absolute;
-    }  
+    } 
+    /*Media запрос*/
+    @media screen and (max-width:750px){
+        .transition {
+          display: none;
+        }
+        .infoSection{
+            width: 100%;
+        }
+        /*Картинка*/
+        .SingleImage{
+            width: 100%;
+        }
+        /*Низ*/
+        .functional{
+            bottom: 0;
+            width: 100%;
+        }
+        .play,.stop{
+            width: auto;
+        }
+        .requestfullscreen, .exitfullscreen{
+            width: auto;
+        }
+        .social{
+            width: auto; 
+        }
+        .church{
+            right: 1em;
+        }
+    }
+    

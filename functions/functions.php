@@ -2337,4 +2337,22 @@
     $namb_roow_error = mysqli_fetch_array( $result_all_error);
     return $namb_roow_error[0];
 }
+//Обработка и вывод информации поиска
+if (!empty($_POST["nameSearch"])) { 
+    $Name = $_POST['nameSearch'];
+    // Запрос для выбора из базы данных
+    $Query = "SELECT id,name,url_500,short_description,category_id FROM kv_photo WHERE name LIKE '%$Name%' LIMIT 3";
+    //Производим поиск в базе данных
+    $ExecQuery = mysqli_query($con, $Query);
+    //Перебираем результаты из базы данных
+    if (mysqli_num_rows($ExecQuery) > 0) {
+        while ($Result = mysqli_fetch_array($ExecQuery,MYSQLI_ASSOC)) {
+            $products[] = $Result;
+        } 
+            // Возвращаем данные в формате JSON
+            echo json_encode($products);
+    }else{
+        echo "0";
+    }    
+}
 ?>
