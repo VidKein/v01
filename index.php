@@ -244,25 +244,23 @@ xhrPost.onreadystatechange = function() {
 		}
 		for (let i = 0; i < response.length; i++) {
 			let product = response[i];
-			//console.log(product["id"]+"-"+product["name"]+"-"+product["url_500"]+"-"+product["category_id"]);
+			//console.log(product["id"]+"-"+product["name"]+"-"+product["url_500"]);
 			let li = document.createElement("li");//создаем li
 			li.className = "infoTablResults";
 			tablResults.appendChild(li);
 			let link = document.createElement("a");//создаем a
-			link.href = "http://v01-git/index.php?page=gallery&categories="+product[`category_id`]+"&photo="+product[`id`];
-			link.textContent = product["name"];
-			link.className = "textTablResults";
+			link.href = "http://v01-git/index.php?page=gallery&categories=all&photo="+product[`id`];
+			link.className = "linkTablResults";
 			li.appendChild(link);
 			let img = document.createElement("img");//создаем img
 			img.src = product["url_500"];
 			img.title = product["name"];
 			img.className = "fotoTablResults";
-			if (img.width >= img.height) {
-				link.style.lineHeight = "2rem";
-			} else {
-				link.style.lineHeight = "5rem";
-			}
 			link.appendChild(img);
+			let span = document.createElement("span");//создаем span
+			span.className = "nameTablResults";
+			span.textContent = product["name"];
+			link.appendChild(span);
 			
 		}
 	}

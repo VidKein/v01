@@ -303,5 +303,11 @@ head{
         .church{
             right: 1em;
         }
+        .backward{/*кнопки к следуюшей картинке*/
+            margin: 0;
+        }
+        .forward{/*кнопки к предыдушей картинке*/
+            margin: 0;
+        }
     }
     

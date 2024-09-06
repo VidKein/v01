@@ -2341,7 +2341,7 @@
 if (!empty($_POST["nameSearch"])) { 
     $Name = $_POST['nameSearch'];
     // Запрос для выбора из базы данных
-    $Query = "SELECT id,name,url_500,short_description,category_id FROM kv_photo WHERE name LIKE '%$Name%' LIMIT 3";
+    $Query = "SELECT id,name,url_500,short_description FROM kv_photo WHERE name LIKE '%$Name%' LIMIT 3";
     //Производим поиск в базе данных
     $ExecQuery = mysqli_query($con, $Query);
     //Перебираем результаты из базы данных
