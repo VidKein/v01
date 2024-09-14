@@ -383,7 +383,14 @@
     };
 
     Slick.prototype.autoPlay = function() {
-
+        //Выводим название картинки
+        var blokInfoFoto = document.querySelector(".blokInfoFoto");    
+        for (let i = 0; i < blokInfoFoto.children.length; i++) { 
+          if (blokInfoFoto.children[i].style.display == "block") {
+            document.querySelector("#name").innerHTML = blokInfoFoto.children[i].children[0].innerHTML;
+            document.querySelector("#description").innerHTML = blokInfoFoto.children[i].children[1].innerHTML;
+          } 
+        } 
         var _ = this;
 
         _.autoPlayClear();
@@ -391,6 +398,8 @@
         if ( _.slideCount > _.options.slidesToShow ) {
             _.autoPlayTimer = setInterval( _.autoPlayIterator, _.options.autoplaySpeed );
         }
+
+
 
     };
 
@@ -1671,7 +1680,6 @@
     };
 
     Slick.prototype.play = Slick.prototype.slickPlay = function() {
-
         var _ = this;
 
         _.autoPlay();

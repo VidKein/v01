@@ -15,18 +15,37 @@ $(document).ready(function() {
 $(document).ready(function(){
   var $play = $(".play");//кнопка проигрывать
       $pausa = $(".stop");//кнопка пауза
-          
-      $play.click('click', function(){//убераем кнопку проигрывать -- показываем кнопку пауза
-        $play.toggleClass('active');//маркер для отключения проигрывателя при открытых соц сетях
+  //Мини
+  var $playMini = $(".playMini");//кнопка проигрывать
+      $pausaMini = $(".stopMini");//кнопка пауза
+      
+      $play.click('click',play);
+      $pausa.click('click', pausa);
+      $playMini.click('click',play);
+      $pausaMini.click('click', pausa);
+
+      function play() {//убераем кнопку проигрывать -- показываем кнопку пауза
+        if (document.documentElement.clientWidth > 750) {
+          $play.toggleClass('active');//маркер для отключения проигрывателя при открытых соц сетях
           $pausa.css({'display': 'block'});
-          $play.css({'display': 'none'});
-      });
-    
-      $pausa.click('click', function(){//убераем кнопку пауза -- показываем кнопку проигрывать
-        $play.toggleClass('active');//маркер для отключения проигрывателя при открытых соц сетях
+          $play.css({'display': 'none'}); 
+        }else{
+          $playMini.toggleClass('active');//маркер для отключения проигрывателя при открытых соц сетях
+          $pausaMini.css({'display': 'block'});
+          $playMini.css({'display': 'none'});
+        }
+      }
+      function pausa() {//убераем кнопку пауза -- показываем кнопку проигрывать
+        if (document.documentElement.clientWidth >= 750) {
+          $play.toggleClass('active');//маркер для отключения проигрывателя при открытых соц сетях
           $pausa.css({'display': 'none'});
           $play.css({'display': 'block'});
-      });
+        }else{
+          $playMini.toggleClass('active');//маркер для отключения проигрывателя при открытых соц сетях
+          $pausaMini.css({'display': 'none'});
+          $playMini.css({'display': 'block'});
+        }
+      }
   });
 //Полноэкранный режим
 $(function() {  
@@ -52,7 +71,31 @@ $(function() {
           $('#fullscreen_slider .requestfullscreen').show();
           $('#fullscreen_slider .exitfullscreen').hide();
         }
+      });
+        //МИНИ
+        // полноэкранном режиме
+      $('#fullscreen_slider .requestfullscreenMini').click(function() {
+        $('#fullscreen_slider').fullscreen();
+        return false;
+      });
 
+      //выход из полноэкранного режима
+      $('#fullscreen_slider .exitfullscreenMini').click(function() {
+        $.fullscreen.exit();
+        return false;
+      });
+
+      // событие документа---если необходимо привязать функцию к одной кнопке(создается две кнопки - одна есь-- другая скрывается и наоборот)
+      $(document).on('fscreenchange', function() {
+        //если мы сейчас в полноэкранном режиме
+        if ($.fullscreen.isFullScreen()) {
+          $('#fullscreen_slider .requestfullscreenMini').hide();
+          $('#fullscreen_slider .exitfullscreenMini').show();
+        } else {
+          $('#fullscreen_slider .requestfullscreenMini').show();
+          $('#fullscreen_slider .exitfullscreenMini').hide();
+        }
+        
       });
 });
 //Убираем/добавляем социальные сети+вставляем МЕТА-теги
@@ -62,8 +105,10 @@ $(document).ready(function(){
   var $social = $(".appearance_social"); 
       $close = $(".close_social");
       $open = $(".social");
-     
-      $open.click('click', function(){//нажимая кнопку на открытие
+      $socialMini = $(".socialMini");
+      $open.click('click', openSocial);
+      $socialMini.click('click', openSocial);
+      function openSocial(){//нажимая кнопку на открытие
         $social.css({'display': 'block'});//добавляем в display --> block
         $('.holder_content').toggleClass('active');//маркер для отключения кнопак клавиш на клавиатуре вправо/влево+пробел клавиатуры при открытых соц сетях
         if ($("#play_metca" ).hasClass('play active')) {//вычитываем маркер нажатия кнопки проигрывателя -- социальные сети
@@ -92,8 +137,7 @@ $(document).ready(function(){
             document.querySelector('meta[property="og:image:height"]').setAttribute("content", height_img);
           }
         img_new.src = img;
-
-      });
+      }
       $close.click('click', function(){//нажимая кнопку на закрытие
         $social.css({'display': 'none'});//добавляем в display --> none
         $('.holder_content').toggleClass('active');//маркер для отключения кнопак клавиш на клавиатуре вправо/влево+пробел клавиатуры при открытых соц сетях
@@ -341,3 +385,51 @@ $(document).ready(function() {
         $('#block_check').html('Надёжный');
       });  
    }); 
+   //Информационная кнопка
+   $(document).ready(function() {
+   $('.infoMini').click(openInfo);
+   function openInfo() {
+    $('.infoMini').toggleClass('active');
+      if ($('.infoMini' ).hasClass('infoMini active')) {
+        $('.infoTextMini').css({'display': 'flex'});
+        $('.infoMini').css({'opacity': '0.3'});
+        clickInfo();
+      }else{
+        $('.infoTextMini').css({'display': 'none'});
+        $('.infoMini').css({'opacity': '1'});
+        clickInfo();
+      }
+      //Выводим название картинки
+      nameFoto(); 
+   };
+
+//Вачитываем информацию о картинке
+ function nameFoto() {
+    var blokInfoFoto = document.querySelector(".blokInfoFoto");    
+    for (let i = 0; i < blokInfoFoto.children.length; i++) { 
+      if (blokInfoFoto.children[i].style.display == "block") {
+        document.querySelector("#name").innerHTML = blokInfoFoto.children[i].children[0].innerHTML;
+        document.querySelector("#description").innerHTML = blokInfoFoto.children[i].children[1].innerHTML;
+      } 
+    }
+  }
+  //
+  function clickInfo() {
+    let imgLoad = document.getElementsByTagName("img");
+        for (let i = 0; i < imgLoad.length; i++) {
+            const elementWidth = imgLoad[i].width;
+            const elementHeight = imgLoad[i].height;
+            if (elementWidth !== "" && elementWidth !== 200) {
+              if (elementWidth < elementHeight) {
+                if (document.querySelector(".infoMini").className ==  "infoMini active") {
+                  imgLoad[i].style.width = "auto"; 
+                  imgLoad[i].style.height = (window.innerHeight-110)+"px";
+                }else{
+                  imgLoad[i].style.height = (window.innerHeight-53)+"px";
+                }
+              }
+            }
+          }
+  }  
+  }); 
+ 

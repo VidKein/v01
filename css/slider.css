@@ -175,6 +175,51 @@ head{
         background: #fafafa;
         color: inherit;	
       }
+/*Окно для небольших экранов*/
+.controlsMini{
+    display: none;
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+}   
+.countBlocMini{/*Номер картинки*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}  
+.backwardMini{/*Стрелка влева*/
+    width: 3em;
+    cursor: pointer;
+    background: #FAFAFA;
+}
+.flasMini{padding: 0 0.5em;}
+.forwardMini{/*Стрелка вправо*/
+    width: 3em;
+    cursor: pointer;
+    background: #FAFAFA;
+}
+.churchMini{/*Функциональные клавиши*/
+    padding: 0 5px;
+    cursor: pointer; 
+    background: #FAFAFA;
+}
+.playMini, .stopMini, .requestfullscreenMini, .exitfullscreenMini, .socialMini, .infoMini{
+    background: #FAFAFA;
+}
+.infoTextMini{/*Информационный блок*/
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#name, #description{
+    margin: 5px;
+    text-align: center;
+    font-size: 12px;
+}
 /*Выпадаюшее окно для соцсетей*/
     .appearance_social {/*все окно*/
         position: fixed;
@@ -280,34 +325,15 @@ head{
           display: none;
         }
         .infoSection{
-            width: 100%;
+            display: none;
         }
         /*Картинка*/
         .SingleImage{
             width: 100%;
         }
-        /*Низ*/
-        .functional{
-            bottom: 0;
-            width: 100%;
+        .controlsMini{
+            display: block;
         }
-        .play,.stop{
-            width: auto;
-        }
-        .requestfullscreen, .exitfullscreen{
-            width: auto;
-        }
-        .social{
-            width: auto; 
-        }
-        .church{
-            right: 1em;
-        }
-        .backward{/*кнопки к следуюшей картинке*/
-            margin: 0;
-        }
-        .forward{/*кнопки к предыдушей картинке*/
-            margin: 0;
-        }
+    
     }
     
