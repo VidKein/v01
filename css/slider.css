@@ -30,7 +30,7 @@ head{
         max-width:1200px;
         margin: 0 auto;
         box-sizing: border-box;/*учитываем отступы*/
-        border: 1.5em solid transparent;/*отступ*/
+        border: 1em solid transparent;/*отступ*/
     }
     img{/*картинки слайдера*/
         margin: 0 auto;
@@ -141,7 +141,8 @@ head{
         height: 3em;
         text-align: left; 
         text-transform: uppercase;
-        font-size: 1em;
+        font-size: 1.35vw;
+        font-weight: bold;
         cursor: pointer;
     }
     .requestfullscreen, .exitfullscreen{/*Полноэкранный режим*/
@@ -153,7 +154,8 @@ head{
         height: 3em;
         text-align: left; 
         text-transform: uppercase;
-        font-size: 1em;
+        font-size: 1.35vw;
+        font-weight: bold;
         padding: 1em 45px 1em 30px;
         position: relative;
         cursor: pointer;
@@ -168,7 +170,8 @@ head{
         height: 3em;
         text-align: left; 
         text-transform: uppercase;
-        font-size: 1em;
+        font-size: 1.35vw;
+        font-weight: bold;
         cursor: pointer;
     }
     #fullscreen_slider {/*подложка для Полноэкранного режима */
@@ -333,6 +336,12 @@ head{
         }
         .controlsMini{
             display: block;
+        }
+        .close{/*кнопка закрытия-перехода на галерею*/
+           width: 0; 
+           height: 0;
+           top: 1px;
+           right: 10px;
         }
     
     }

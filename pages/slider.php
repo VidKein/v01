@@ -101,10 +101,11 @@
                     <p ><?= $info['description']?></p><!--description--> 
                 </div>
             
-            <?php endforeach;
+            <?php endforeach;?>
+        <div class="blokInfoFoto">    
+        <?php    
         } elseif($categories == $request){//Подгрузка информациb о картинках по категориям используя запросы
             foreach ($id_cat as $key=>$info):?>
-            <div class="blokInfoFoto">
                 <div class="content-foto" index="<?= $key?>" style="display: none;">
                     <p><?= $info['name']?></p><!--name-->
                     <p><?= $info['description']?></p><!--description-->
@@ -157,26 +158,52 @@ addEventListener("resize",()=>{imgLoad();})
         let imgLoad = document.getElementsByTagName("img");
         for (let i = 0; i < imgLoad.length; i++) {
             const elementWidth = imgLoad[i].width;
-            const elementHeight = imgLoad[i].height;
-            
+            const elementHeight = imgLoad[i].height;           
             if (elementWidth !== "" && elementWidth !== 200) {
-                if (elementWidth > elementHeight) {
-                    imgLoad[i].style.width = "100%"; 
-                    imgLoad[i].style.height = "auto";
+                if (elementWidth > elementHeight) {   
+                    if (document.documentElement.clientWidth >= 750) {
+                        imgLoad[i].style.width = "100%"; 
+                        imgLoad[i].style.height = "auto";   
+                        document.querySelector(".imegen").setAttribute ("style", "border-top : null");
+                        document.querySelector(".SingleImage").setAttribute ("style", "top : 50%");
+                    }else{
+                        if (innerWidth > innerHeight) {
+                            if (document.querySelector(".infoMini").className ==  "infoMini active") {
+                                document.querySelector(".imegen").setAttribute ("style", "border-top : 0em solid transparent");
+                                imgLoad[i].style.width = "auto"; 
+                                imgLoad[i].style.height = window.innerHeight-110+"px";  
+                                document.querySelector(".SingleImage").setAttribute ("style", "top : 45%");
+                            } else {
+                                document.querySelector(".imegen").setAttribute ("style", "border-top : 0em solid transparent");
+                                imgLoad[i].style.width = "auto"; 
+                                imgLoad[i].style.height = window.innerHeight-53+"px";  
+                                document.querySelector(".SingleImage").setAttribute ("style", "top : 45%");
+                            }
+                        } else {
+                        document.querySelector(".SingleImage").setAttribute ("style", "top : 45%");
+                        imgLoad[i].style.width = window.innerWidth+"px"; 
+                        imgLoad[i].style.height = "auto";  
+                        document.querySelector(".imegen").setAttribute ("style", "border-top : 0em solid transparent");
+                        }
+
+                    }                 
                 } else {
                     if (document.documentElement.clientWidth >= 750) {
                         imgLoad[i].style.width = "auto"; 
                         imgLoad[i].style.height = window.innerHeight+"px";
                         document.querySelector(".imegen").setAttribute ("style", "border-top : null");
+                        document.querySelector(".SingleImage").setAttribute ("style", "top : 50%");
                     } else {
                         if (document.querySelector(".infoMini").className ==  "infoMini active") {
                             document.querySelector(".imegen").setAttribute ("style", "border-top : 0em solid transparent");
                             imgLoad[i].style.width = "auto"; 
                             imgLoad[i].style.height = (window.innerHeight-110)+"px";
+                            document.querySelector(".SingleImage").setAttribute ("style", "top : 45%");
                         } else {
                             document.querySelector(".imegen").setAttribute ("style", "border-top : 0em solid transparent");
                             imgLoad[i].style.width = "auto"; 
-                            imgLoad[i].style.height = (window.innerHeight-53)+"px";;
+                            imgLoad[i].style.height = (window.innerHeight-53)+"px";
+                            document.querySelector(".SingleImage").setAttribute ("style", "top : 45%");
                         }
                     }
 

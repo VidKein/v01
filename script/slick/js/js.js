@@ -1,27 +1,29 @@
 //Считываем и преобразуем запрос из URL при первой загрузки
 var url_zapros = location.search.split('photo=')[1];
 var sliderNamber = url_zapros-1;
-var backward;
-var forward;
 
 //Скрипт обших настроек слайдера+отображение информации о картинке
 $(document).ready(function() {
 //Отображение картинки по запросу из URL при первой загрузке
-   jQuery(document).ready((function(){
-     $('.sl').slick('slickGoTo', sliderNamber, false);   
-    }));
-    if (document.documentElement.clientWidth >=750) {
-        backward = '.backward';
-        forward = '.forward';
-    } else {
-        backward = '.backwardMini';
-        forward = '.forwardMini';
-    }
-    $('.sl').slick({
+jQuery(document).ready((function(){
+    $('.sl').slick('slickGoTo', sliderNamber, false);   
+   }));
+        var backward;
+        var forward;
+        if (document.documentElement.clientWidth >=750) {
+            backward = '.backward';
+            forward = '.forward';
+        } else {
+            backward = '.backwardMini';
+            forward = '.forwardMini';
+        }
+    
+    
+        $('.sl').slick({
         lazyLoad: 'ondemand',//ленивая загрузка
         pauseOnFocus: false,//не останавливает при нажатии на картинку
         pauseOnHover: false,//не останавливает при наведении курсора
-        autoplaySpeed: 3000,//скорость проигрывания
+        autoplaySpeed: 2000,//скорость проигрывания
         adaptiveHeight: true,//адаптация картинок
         cssEase: 'linear',//переход с затемнениями
         fade: true,//переход с затемнениями
@@ -30,7 +32,8 @@ $(document).ready(function() {
         //заменитель стрелок
         prevArrow: document.querySelector(backward),
         nextArrow: document.querySelector(forward)
-    });  
+        });   
+ 
     //включаем автопроигрыватель+картинки+информация о фотогрвфии
     $('.play').click(function () {
         $('.sl').slick('slickPlay');
@@ -90,11 +93,11 @@ $(document).ready(function() {
     });
     $('.stopMini').click(function () {//пауза автопроигрывателя
         $('.sl').slick('slickPause');
-    });       
+    });  
 });
 
 //Скрипт отображения информации о картинках при нажатии кнопок <--/-->
-$(document).ready(function(){
+$(document).ready(function() {
     var starting_point = 0;   
     var xs = document.querySelectorAll(".content-foto");
     var end_poind = (xs.length)-1;
@@ -109,7 +112,8 @@ $(document).ready(function(){
     document.getElementsByClassName("content-foto")[sliderNamber].style.display = "block";//отображаем инфо о первой картинке с индексом -- 0
 
     //ВПЕРЕД
-    $next.click('click', function(){
+    $next.on('click', function(){
+        $('.sl').slick('slickNext');
         var namber_img = $( ".slick-active" ).attr( "data-slick-index" );//вычитываем номер отображаемой картинки при нажатии на кнопку вперед 
         //обновляем адрес с url
         let new_url = new URL(url_all);
@@ -117,17 +121,20 @@ $(document).ready(function(){
         window.history.pushState(url_all, 'Title', new_url);
         if (namber_img > starting_point && namber_img <= end_poind) {
                 $( "#namber" ).text(+namber_img+1);//выводим это в счетчик на странице
+                $( "#namberMini" ).text(+namber_img+1);//выводим это в счетчик на странице
                 document.getElementsByClassName("content-foto")[namber_img].style.display = "block";//включаем отображения картинки
                 $('.info-foto').each(function(){ 
                     document.getElementsByClassName("content-foto")[namber_img-1].style.display = "none";  //отключает отображения картинки
                 }); 
             } else if (namber_img == starting_point){ 
                    $("#namber").text(+starting_point+1);//выводим это в счетчик на странице
+                   $( "#namberMini" ).text(+namber_img+1);//выводим это в счетчик на странице
                    document.getElementsByClassName("content-foto")[end_poind].style.display = "none";//отключает отображения последней картинки
                    document.getElementsByClassName("content-foto")[namber_img].style.display = "block";}//включаем отображения картинки
     });
     //НАЗАД 
-    $prev.click('click', function(){
+    $prev.on('click', function(){
+    $('.sl').slick('slickPrev');
     var namber_img = $( ".slick-active" ).attr( "data-slick-index" );//вычитываем номер отображаемой картинки при нажатии на кнопку назад
     //обновляем адрес с url
     let new_url = new URL(url_all);
@@ -135,18 +142,21 @@ $(document).ready(function(){
     window.history.pushState(url_all, 'Title', new_url);
     if (namber_img >= starting_point && namber_img < end_poind) {
             $( "#namber" ).text(+namber_img+1);//выводим это в счетчик на странице
+            $( "#namberMini" ).text(+namber_img+1);//выводим это в счетчик на странице
             document.getElementsByClassName("content-foto")[namber_img].style.display = "block";//включаем отображения картинки
             $('.info-foto').each(function(){ 
                 document.getElementsByClassName("content-foto")[+namber_img + 1].style.display = "none";  //отключает отображения картинки
             }); 
         } else if (namber_img == end_poind){
              $("#namber").text(+end_poind+1);//выводим это в счетчик на странице
+             $( "#namberMini" ).text(+namber_img+1);//выводим это в счетчик на странице
              document.getElementsByClassName("content-foto")[starting_point].style.display = "none";//отключает отображения начальной картинки
              document.getElementsByClassName("content-foto")[namber_img].style.display = "block";}//включаем отображения картинки
         }); 
     //Мини
     //ВПЕРЕД
-    $nextMini.click('click', function(){
+    $nextMini.on('click', function(){
+        $('.sl').slick('slickNext');
         var namber_img = $( ".slick-active" ).attr( "data-slick-index" );//вычитываем номер отображаемой картинки при нажатии на кнопку вперед 
         //обновляем адрес с url
         let new_url = new URL(url_all);
@@ -154,19 +164,22 @@ $(document).ready(function(){
         window.history.pushState(url_all, 'Title', new_url);
         if (namber_img > starting_point && namber_img <= end_poind) {
                 $( "#namberMini" ).text(+namber_img+1);//выводим это в счетчик на странице
+                $( "#namber" ).text(+namber_img+1);//выводим это в счетчик на странице
                 document.getElementsByClassName("content-foto")[namber_img].style.display = "block";//включаем отображения картинки
                 $('.info-foto').each(function(){ 
                     document.getElementsByClassName("content-foto")[namber_img-1].style.display = "none";  //отключает отображения картинки
                 }); 
             } else if (namber_img == starting_point){ 
                    $("#namberMini").text(+starting_point+1);//выводим это в счетчик на странице
+                   $( "#namber" ).text(+namber_img+1);//выводим это в счетчик на странице
                    document.getElementsByClassName("content-foto")[end_poind].style.display = "none";//отключает отображения последней картинки
                    document.getElementsByClassName("content-foto")[namber_img].style.display = "block";}//включаем отображения картинки
                    //Выводим название картинки
                    nameFoto();
     });
     //НАЗАД 
-    $prevMini.click('click', function(){
+    $prevMini.on('click', function(){
+    $('.sl').slick('slickPrev');
     var namber_img = $( ".slick-active" ).attr( "data-slick-index" );//вычитываем номер отображаемой картинки при нажатии на кнопку назад
     //обновляем адрес с url
     let new_url = new URL(url_all);
@@ -174,29 +187,20 @@ $(document).ready(function(){
     window.history.pushState(url_all, 'Title', new_url);
     if (namber_img >= starting_point && namber_img < end_poind) {
             $( "#namberMini" ).text(+namber_img+1);//выводим это в счетчик на странице
+            $( "#namber" ).text(+namber_img+1);//выводим это в счетчик на странице
             document.getElementsByClassName("content-foto")[namber_img].style.display = "block";//включаем отображения картинки
             $('.info-foto').each(function(){ 
                 document.getElementsByClassName("content-foto")[+namber_img + 1].style.display = "none";  //отключает отображения картинки
             }); 
         } else if (namber_img == end_poind){
              $("#namberMini").text(+end_poind+1);//выводим это в счетчик на странице
+             $( "#namber" ).text(+namber_img+1);//выводим это в счетчик на странице
              document.getElementsByClassName("content-foto")[starting_point].style.display = "none";//отключает отображения начальной картинки
              document.getElementsByClassName("content-foto")[namber_img].style.display = "block";}//включаем отображения картинки
              //Выводим название картинки
              nameFoto();
-        }); 
-//Вачитываем информацию о картинке
- function nameFoto() {
-    var blokInfoFoto = document.querySelector(".blokInfoFoto");    
-    for (let i = 0; i < blokInfoFoto.children.length; i++) { 
-      if (blokInfoFoto.children[i].style.display == "block") {
-        document.querySelector("#name").innerHTML = blokInfoFoto.children[i].children[0].innerHTML;
-        document.querySelector("#description").innerHTML = blokInfoFoto.children[i].children[1].innerHTML;
-      } 
-    }
-  }    
+        });   
 });
-
 //Скрипт отображения информации о картинках при нажатии кнопок клавиш на клавиатуре влево/вправо
 $(document).on('keydown',function (e) { 
     var key = e.which;
@@ -259,18 +263,6 @@ $(document).on('keydown',function (e) {
                                             nameFoto();
                     }
         }
-//Вачитываем информацию о картинке
- function nameFoto() {
-    var blokInfoFoto = document.querySelector(".blokInfoFoto");    
-    for (let i = 0; i < blokInfoFoto.children.length; i++) { 
-        console.log(blokInfoFoto);
-        
-      if (blokInfoFoto.children[i].style.display == "block") {
-        document.querySelector("#name").innerHTML = blokInfoFoto.children[i].children[0].innerHTML;
-        document.querySelector("#description").innerHTML = blokInfoFoto.children[i].children[1].innerHTML;
-      } 
-    }
-  }
   }); 
   
 //при нажатии пробела включается проигрыватель/при повторном нажатии пробела пауза
@@ -335,3 +327,14 @@ $(function(){
             };          
             addEventListener( "keydown", moveRect );
 });
+
+//Вачитываем информацию о картинке
+function nameFoto() {
+    var blokInfoFoto = document.querySelector(".blokInfoFoto");    
+    for (let i = 0; i < blokInfoFoto.children.length; i++) { 
+      if (blokInfoFoto.children[i].style.display == "block") {
+        document.querySelector("#name").innerHTML = blokInfoFoto.children[i].children[0].innerHTML;
+        document.querySelector("#description").innerHTML = blokInfoFoto.children[i].children[1].innerHTML;
+      } 
+    }
+  }  

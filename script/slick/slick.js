@@ -90,7 +90,7 @@
                 waitForAnimate: true,
                 zIndex: 1000
             };
-
+          
             _.initials = {
                 animating: false,
                 dragging: false,
@@ -451,7 +451,7 @@
         if (_.options.arrows === true ) {
 
             _.$prevArrow = $(_.options.prevArrow).addClass('slick-arrow');
-            _.$nextArrow = $(_.options.nextArrow).addClass('slick-arrow');
+            _.$nextArrow = $(_.options.nextArrow).addClass('slick-arrow');            
 
             if( _.slideCount > _.options.slidesToShow ) {
 

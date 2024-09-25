@@ -25,26 +25,20 @@ $(document).ready(function(){
       $pausaMini.click('click', pausa);
 
       function play() {//убераем кнопку проигрывать -- показываем кнопку пауза
-        if (document.documentElement.clientWidth > 750) {
           $play.toggleClass('active');//маркер для отключения проигрывателя при открытых соц сетях
           $pausa.css({'display': 'block'});
           $play.css({'display': 'none'}); 
-        }else{
           $playMini.toggleClass('active');//маркер для отключения проигрывателя при открытых соц сетях
           $pausaMini.css({'display': 'block'});
           $playMini.css({'display': 'none'});
-        }
       }
       function pausa() {//убераем кнопку пауза -- показываем кнопку проигрывать
-        if (document.documentElement.clientWidth >= 750) {
           $play.toggleClass('active');//маркер для отключения проигрывателя при открытых соц сетях
           $pausa.css({'display': 'none'});
           $play.css({'display': 'block'});
-        }else{
           $playMini.toggleClass('active');//маркер для отключения проигрывателя при открытых соц сетях
           $pausaMini.css({'display': 'none'});
           $playMini.css({'display': 'block'});
-        }
       }
   });
 //Полноэкранный режим
@@ -385,6 +379,7 @@ $(document).ready(function() {
         $('#block_check').html('Надёжный');
       });  
    }); 
+   /*Анимация при мини картинки*/
    //Информационная кнопка
    $(document).ready(function() {
    $('.infoMini').click(openInfo);
@@ -413,7 +408,7 @@ $(document).ready(function() {
       } 
     }
   }
-  //
+  //ействия при нажатии кнопки инфо
   function clickInfo() {
     let imgLoad = document.getElementsByTagName("img");
         for (let i = 0; i < imgLoad.length; i++) {
@@ -421,6 +416,13 @@ $(document).ready(function() {
             const elementHeight = imgLoad[i].height;
             if (elementWidth !== "" && elementWidth !== 200) {
               if (elementWidth < elementHeight) {
+                if (document.querySelector(".infoMini").className ==  "infoMini active") {
+                  imgLoad[i].style.width = "auto"; 
+                  imgLoad[i].style.height = (window.innerHeight-110)+"px";
+                }else{
+                  imgLoad[i].style.height = (window.innerHeight-53)+"px";
+                }
+              }else{
                 if (document.querySelector(".infoMini").className ==  "infoMini active") {
                   imgLoad[i].style.width = "auto"; 
                   imgLoad[i].style.height = (window.innerHeight-110)+"px";
