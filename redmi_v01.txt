@@ -43,4 +43,3 @@ Roboto, sans-serif
 Группа pages/slider.php/слайдер
 https://fontawesome.com/
 Рассположен - fonts/fontawesome/css/all.min.css
-
